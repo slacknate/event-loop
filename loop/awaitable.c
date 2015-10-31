@@ -1,9 +1,9 @@
 #include "awaitable.h"
 
 
-await_info *create_await_info(Awaitable func, Event *event) {
+AwaitInfo *create_await_info(Awaitable func, Event *event) {
 
-    await_info *ai = (await_info *)malloc(sizeof(await_info));
+    AwaitInfo *ai = (AwaitInfo *)malloc(sizeof(AwaitInfo));
 
     ai->func = func;
     ai->event = event;
@@ -12,7 +12,7 @@ await_info *create_await_info(Awaitable func, Event *event) {
 }
 
 
-void destroy_await_info(await_info *ai) {
+void destroy_await_info(AwaitInfo *ai) {
 
     ai->func = NULL;
     ai->event = NULL;
@@ -21,7 +21,7 @@ void destroy_await_info(await_info *ai) {
 }
 
 
-void run_awaitable(await_info *ai) {
+void run_awaitable(AwaitInfo *ai) {
 
     ai->result = ai->func(NULL);
 

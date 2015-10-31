@@ -3,6 +3,6 @@
 
 #include "awaitable.h"
 
-void queue_awaitable(await_info *);
+void queue_awaitable(AwaitInfo *);
 
 #endif //LOOP_WIN_H

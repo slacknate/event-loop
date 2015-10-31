@@ -15,7 +15,7 @@
 
 void schedule(Awaitable func) {
 
-    await_info *ai = create_await_info(func, NULL);
+    AwaitInfo *ai = create_await_info(func, NULL);
     queue_awaitable(ai);
 
     // FIXME: how the fuck do I free the await info struct for this case?
@@ -25,7 +25,7 @@ void schedule(Awaitable func) {
 void *await(Awaitable func) {
 
     Event *event = create_event();
-    await_info *ai = create_await_info(func, event);
+    AwaitInfo *ai = create_await_info(func, event);
 
     queue_awaitable(ai);
     wait_for_event(ai->event);

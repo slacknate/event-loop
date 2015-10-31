@@ -5,17 +5,17 @@
 
 typedef void* (*Awaitable)(void *);
 
-typedef struct _await_info {
+typedef struct {
 
     Event *event;
     Awaitable func;
     void *result;
 
-} await_info;
+} AwaitInfo;
 
-await_info *create_await_info(Awaitable func, Event *event);
-void destroy_await_info(await_info *ai);
+AwaitInfo *create_await_info(Awaitable func, Event *event);
+void destroy_await_info(AwaitInfo *ai);
 
-void run_awaitable(await_info *ai);
+void run_awaitable(AwaitInfo *ai);
 
 #endif //AWAITABLE_H
