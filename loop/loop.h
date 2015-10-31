@@ -1,17 +1,9 @@
 #ifndef LOOP_H
 #define LOOP_H
 
-#if defined(_WIN32) || defined(_WIN64)
-// Windows MinGW
-#include "win.h"
-#endif
+#include "awaitable.h"
 
-#ifdef __GNUC__
-// Linux GCC
-#endif
-
-#ifdef __APPLE__
-// Mac OSX
-#endif
+void schedule(Awaitable func);
+void *await(Awaitable func);
 
 #endif //LOOP_H

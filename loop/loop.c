@@ -1,36 +1,17 @@
 #include "loop.h"
 
+#if defined(_WIN32) || defined(_WIN64)
+// Windows MinGW
+#include "win.h"
+#endif
 
-void run_awaitable(await_info *ai) {
+#ifdef __GNUC__
+// Linux GCC
+#endif
 
-    ai->result = ai->func(NULL);
-
-    if(ai->event != NULL)
-        signal_event(ai->event);
-}
-
-
-await_info *create_await_info(Awaitable func, Event *event) {
-
-    await_info *ai = (await_info *)malloc(sizeof(await_info));
-
-    ai->func = func;
-    ai->event = event;
-    ai->blap = &run_awaitable;
-
-    return ai;
-}
-
-
-void destroy_await_info(await_info *ai) {
-
-    ai->func = NULL;
-    ai->blap = NULL;
-    ai->event = NULL;
-
-    free(ai);
-}
-
+#ifdef __APPLE__
+// Mac OSX
+#endif
 
 void schedule(Awaitable func) {
 

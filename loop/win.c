@@ -6,7 +6,7 @@
 static void CALLBACK run_async(long unsigned int ai_ptr) {
 
     await_info *ai = (await_info *)ai_ptr;
-    ai->blap(NULL);
+    run_awaitable(ai);
 }
 
 
