@@ -3,7 +3,7 @@
 
 #include <windows.h>
 
-typedef struct _Event {
+typedef struct {
 
     HANDLE descriptor;
 
