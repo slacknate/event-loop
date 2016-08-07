@@ -9,7 +9,7 @@ define i8* @save_stack() {
 }
 
 
-define void @stack_restor(i8* %ptr) {
+define void @stack_restore(i8* %ptr) {
 
   call void @llvm.stackrestore(i8* %ptr)
   ret void
