@@ -10,6 +10,7 @@ set(SOURCE_FILES
     main.c
 
     coroutines/stack.asm
+    coroutines/stack.h
 
     loop/loop.c loop/loop.h
     loop/awaitable.c loop/awaitable.h

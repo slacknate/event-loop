@@ -1,7 +1,3 @@
-//
-// Created by Nate on 10/31/2015.
-//
-
 #ifndef EVENT_H
 #define EVENT_H
 
